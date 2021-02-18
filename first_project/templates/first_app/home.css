@@ -1,0 +1,73 @@
+body{
+	font-size: 20px;
+	text-decoration-color: #D7DBDD;
+	background-color:#212121/*#000000*//*#212F3C*/;
+	margin: 0px;
+	border:40px solid  #2B7A78/*#17A589*//*#2E151B*//*#B2EBF2*/;
+	border-top: 0px;
+	border-bottom: 0px;
+	padding-bottom: 150px;
+}
+nav{
+	position: fixed;
+}
+
+.paraestate{
+	font-family: 'Arizonia', cursive;
+}
+
+table{
+	margin-left: 40px;
+	align-self: auto;
+}
+td{
+	margin-right: 100px;
+	padding-left: 50px;
+	padding: 40px;
+	width: 500px;
+	align-self: auto;
+}
+td:hover{
+	box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.5);
+}
+h1{
+	text-align: center;
+	font-family: 'Arizonia', cursive;
+	text-decoration-color:#2B7A78;
+	width: 20%;
+	margin: auto;
+	margin-top: 40px;
+	padding: ;
+
+}
+.rightside{
+	padding-left: 190px;
+	}
+.mapalign{
+	align-self: auto;
+
+.mapimg{
+	padding-left: 10px;
+}
+
+.contactus{
+	margin: auto;
+	margin-top: 50px ;
+ 	width: 50%;
+ 	padding: 10px;
+ 	border-radius: 10px;
+ 	box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.5);
+}
+.contfo{
+	margin: auto;
+	margin-top: 50px ;
+	width: 50%;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.5);
+}
+
+
+.card{
+	display: inline-block;
+}

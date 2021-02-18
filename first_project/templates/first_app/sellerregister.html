@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>login_in</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sellerregister.css'%}">
+	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Philosopher&display=swap" rel="stylesheet">
+
+</head>
+
+<body bgcolor="white" >
+	{% if error %}
+<div class ="alert alert-danger">
+	<strong>
+{{ error }}
+</strong>
+</div>
+{% endif %}
+	<div class="container">
+<h1 style="color: #17A589">ESTATE</h1><footer class="footer" style="color: #17A589">-Let Us Manage Your Property.</footer><br>
+
+</div>
+<form action="/first_app/register_seller" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+  <div class= "headingofregistration">
+<div class="container">
+  <h1 style="color: #17A589"> Seller Registration</h1>
+	<div class="form-group has-success"><br>
+	  <label class="control-label" for="inputSuccess1">Name</label>
+	  <input type="text" class="form-control" id="inputSuccess1" name="name" aria-describedby="helpBlock2" required>
+	</div>
+	<div class="form-group has-warning">
+	  <label class="control-label" for="inputWarning1" >Gmail-ID</label>
+	  <input type="email" class="form-control" id="inputWarning1" name= "id"required>
+	</div>
+	<div class="form-group has-error">
+	  <label class="control-label" for="inputError1">Password</label>
+	  <input type="Password" class="form-control" id="inputError1" name="pass" required>
+	</div>
+	<div class="form-group has-error">
+		<label class="control-label" for="inputError1">pan_card_no</label>
+		<input type="text" class="form-control" id="inputError1" name="pan_card_no" required>
+	</div>
+	<div class="form-group has-error">
+		<label class="control-label" for="inputError1">aadhar_card_no</label>
+		<input type="text" class="form-control" id="inputError1" name="aadhar_card_no" required>
+	</div>
+	<div class="form-group has-error">
+		<label class="control-label" for="inputError1">pan_card_photo</label>
+		<input type="file"   id="inputSuccess1" name="pan_card_photo" aria-describedby="helpBlock2" required>
+	</div>
+	<div class="form-group has-error">
+		<label class="control-label" for="inputError1">aadhar_card_photo</label>
+		<input type="file" id="inputSuccess1" name="aadhar_card_photo" aria-describedby="helpBlock2" required>
+	</div>
+	<div class="form-group has-error">
+		<label class="control-label" for="inputError1">profile photo</label>
+		<input type="file"  id="inputSuccess1" name="seller_profile" aria-describedby="helpBlock2" required>
+	</div>
+	<input type="submit" name="submit"class="btn btn-primary btn-sm"><br>
+</div>
+
+<br>
+</div>
+</div>
+</form>
+
+</body>
+</html>

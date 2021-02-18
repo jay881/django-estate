@@ -1,0 +1,51 @@
+h1{
+	text-align: center;
+
+	font-family: 'Arizonia', cursive;
+
+	text-decoration-color: blue;
+	width: 20%;
+	margin: auto;
+	margin-top: 100px;
+	padding: ;
+
+}
+p{
+	font-family: monospace;
+}
+body{
+	font-size: 20px;
+	text-decoration-color: #D7DBDD;
+	background-color: #212121;
+	margin: 0px;
+	border:40px solid #2B7A78;
+	border-top: 0px;
+	border-bottom: 0px;
+	padding-bottom: 150px;
+}
+#twoo{
+	font-size: 1.0em;
+}
+p{
+	font-family: 'Philosopher', sans-serif;
+	/*font-style:italic;*/
+	font-weight: bold;
+	text-align: left;
+}
+h1{
+	text-align: center;
+}
+.art{
+	margin: auto;
+}
+.footer{
+	text-align: right;
+}
+.label_cat{
+text-decoration-color: #D7DBDD;
+}
+.buyersigninshadow{
+	box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.5);
+	margin: 100px;
+	margin-top: 0px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>sign_in</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sellermystyle.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Philosopher&display=swap" rel="stylesheet">
+
+</head>
+<body bgcolor="white" >
+	{% if error %}
+<div class ="alert alert-danger">
+	<strong>
+		{{ error }}
+	</strong>
+</div>
+	{% endif %}
+	<div class="container">
+<a href="/"><h1 style="color: #A3E4D7">ESTATE</h1></a><footer class="footer" style="color: #D7DBDD">-Let Us Manage Your Property.</footer><br>
+
+</div>
+<div class="shadowforsellersignin">
+<div class="container">
+  <h2 style="color: #A3E4D7">Seller Signin</h2>
+</div><br>
+<div class="container">
+<div class="form-group">
+<form class="form-inline" action="signin_seller" method="post">
+		{% csrf_token %}
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+    <input type="email"  class="form-control" id="exampleInputEmail3" name="id" placeholder="Email" required="please enter your Email Id">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword3" name="pass" placeholder="Password" required="Please enter your Password">
+  </div>
+  <br><h6><a href="theam.html">forgot password...</a></h6>
+  <!-- <div class="checkbox">
+    <label class="label_rem">
+      <input type="checkbox" ><h4 style="color: #D7DBDD">Remember me</h4>
+    </label>
+  </div><br> -->
+  <button type="submit" class="btn btn-default">Sign in</button>
+
+	<h5><a href="/first_app/sellersignup">New to ESTATE Sign up right now..</a></h5>
+</form>
+</div>
+<div>
+<p style="color: #D7DBDD">ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<p id= 'twoo' style="color: #D7DBDD">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+
+</div>
+</div>
+</body>
+</html>

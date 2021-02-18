@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flats</title>
+    <!-- Latest compiled and minified CSS -->
+  <!-- Latest compiled and minified CSS -->
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Philosopher&display=swap" rel="stylesheet">
+  <!-- <script type="text/javascript" src="myscript.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/listingsflats.css' %}">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar navbar-inverse">
+      <div class="container">
+       <div class="navbar-header">
+        <a href="/first_app/signin_seller" class="navbar-brand"><p class="paraestate" style="color: #17A589">ESTATE</p></a>
+       </div>
+       <ul class="nav navbar-nav navbar-right">
+         <li><a href="/first_app/sellersignin">Sign out</a></li>
+       </ul>
+       </div>
+    </nav>
+
+    <h1 style="color: #17A589">Flats</h1>
+    <br>
+    <div class="container">
+  {% if fla %}
+
+    <table class="data">
+      {% for fl in fla %}
+
+      <tr>
+        <td>
+          <div class="container">
+            <h2 class="card-text" style="color: #ffffff">{{fl.flate_name}}</h2>
+            <br>
+            <div class="row">
+              <div class="col-6">
+                <img src="media/{{fl.pic}}" class="card-img-top" alt="..." width="400px">
+              </div>
+              <div class="col-sm">
+                <p class="display-6" style="color: #17A589">id : {{fl.id}}</p>
+                <p class="display-6" style="color: #17A589">location : {{fl.location}}</p>
+                <p class="display-6" style="color: #17A589">longitude : {{fl.longitude}}</p>
+                <p class="display-6" style="color: #17A589">latitude : {{fl.latitude}}</p>
+                <p class="display-6" style="color: #17A589">ground area : {{fl.ground_area}}</p>
+                <p class="display-6" style="color: #17A589">carpet area : {{fl.carpet_area}}</p>
+
+
+              </div>
+              <div class="col-sm">
+                <p class="display-6" style="color: #17A589">flate no : {{fl.flate_no}}</p>
+                <p class="display-6" style="color: #17A589">BedHK : {{fl.BedHK}}</p>
+                <p class="display-6" style="color: #17A589">floor no : {{fl.floor_no}}</p>
+                <p class="display-6" style="color: #17A589">car parking : {{fl.car_parking}}</p>
+                <p class="display-6" style="color: #17A589">price : {{fl.price}}</p>
+              </div>
+              <br><br>
+            </div>
+
+
+            <div class="row">
+              <div class="col">
+                <br>
+              <img src="media/{{fl.property_image_one}}" class="rounded float-start" height="170px" alt="...">
+              <br>
+              </div>
+              <div class="col">
+                <br>
+              <img src="media/{{fl.property_image_tow}}" class="rounded float-start" height="170px" alt="...">
+              </div>
+              <div class="col">
+                <br>
+            <img src="media/{{fl.property_image_three}}"class="rounded float-start"  height="170px" alt="...">
+              </div>
+              <div class="col">
+                <br>
+            <img src="media/{{fl.property_image_four}}"class="rounded float-start"  height="170px" alt="...">
+          </div>
+            </div>
+<div class="">
+  <br><br>
+</div>
+<!-- 
+<div class="container">
+  <form class="appoint" action="Appointments" method="post">
+    {% csrf_token %}
+    <table class="table table-dark table-striped">
+      <tr>
+        <td> sellergmail</td>
+        <td> buyergmail</td>
+        <td>time</td>
+
+        <td></td>
+      </tr>
+      <tr>
+        <td> <input type="text" style="color: #17A589" name="seller" ></td>
+        <td> <input type="text" style="color: #17A589" name="buyer"></td>
+        <td> <input type="datetime-local" style="color: #17A589" name="appoint_date" value=""></td>
+
+        <td>
+        <button class="btn btn-success" type="submit" name="submit">Submit</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+            ​ -->
+
+<!-- <br>
+<div class ="container">
+<div class="row">
+    <div class="col-6">
+      <img src="/static/images/img2.jpg" class="rounded float-start" height="100px" alt="...">
+    </div>
+    <divclass="col-sm" >
+      <img src="/static/images/img3.jpg" class="rounded float-start" height="100px" alt="...">
+    </div>
+    <divclass="col-sm" >
+      <img src="/static/images/img4.jpg"class="rounded float-start"  height="100px" alt="...">
+    </div>
+  </div>
+</div>
+<br> -->
+
+
+
+
+              <!-- {% if appoint %}
+              {% for app in appoint %}
+              {% endfor %}
+              {% else %}
+              {% endif %} -->
+              <!-- <br>
+              <form class="appoint" action="add_appoint" method="post">
+                <input type="text" name="sellergmail" value="{{fl.id}}">
+                <input type="text" name="buyergmail" value="{{fl.flate_name}}">
+                <input type="text" name="time" value="">
+                <input type="text" name="date" value="">
+                <button type="submit" name="submit">Submit</button>
+
+              </form> -->
+
+            <div class="row">
+              <a href="/first_app/listing"><button class="btn btn-primary" id ="viewflats" >View flats</button></a>
+            </div>
+          </div>
+          <br>
+        </td>
+      </tr>
+      {% endfor %}
+
+      </table>
+  {% else %}
+  <h1>no data</h1>
+  {% endif %}
+      <!-- <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+
+    </div>
+  </body>
+</html>

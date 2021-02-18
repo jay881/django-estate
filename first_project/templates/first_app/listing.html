@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bunglaws</title>
+    <!-- Latest compiled and minified CSS -->
+  <!-- Latest compiled and minified CSS -->
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Philosopher&display=swap" rel="stylesheet">
+  <!-- <script type="text/javascript" src="myscript.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/listingsflats.css' %}">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar navbar-inverse">
+      <div class="container">
+       <div class="navbar-header">
+        <a href="/first_app/home" class="navbar-brand"><p class="paraestate" style="color: #17A589">ESTATE</p></a>
+       </div>
+       <ul class="nav navbar-nav navbar-right">
+         <li><a href="/first_app/">Sign out</a></li>
+       </ul>
+       </div>
+    </nav>
+
+    <h1 style="color: #17A589">Bungalows</h1>
+    <br>
+    <div class="container">
+  {% if bun %}
+    <table class="data">
+      {% for bu in bun %}
+      <tr>
+        <td>
+          <div class="container">
+
+            <div class="row">
+              <h2 class="card-text" style="color: #ffffff">{{bu.name}}</h2>
+              <br>
+              <div class="col-6">
+                <img src="media/{{bu.pic}}" class="card-img-top" alt="..." width="400px">
+              </div>
+              <div class="col-sm">
+                <p class="card-text" style="color: #17A589">id : {{bu.id}}</p>
+                <p class="card-text" style="color: #17A589">location : {{bu.location}}</p>
+                <p class="card-text" style="color: #17A589">longitude : {{bu.longitude}}</p>
+                <p class="card-text" style="color: #17A589">latitude : {{bu.latitude}}</p>
+                <p class="card-text" style="color: #17A589">ground area : {{bu.ground_area}}</p>
+                <p class="card-text" style="color: #17A589">carpet area : {{bu.carpet_area}}</p>
+              </div>
+              <div class="col-sm">
+                <p class="card-text" style="color: #17A589">BedHK : {{bu.BedHK}}</p>
+                <p class="card-text" style="color: #17A589">price : {{bu.price}}</p>
+                <a href="/first_app/listing"><button class="btn btn-primary" >View Bungalows</button></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <br>
+              <img src="media/{{bu.property_image_one}}" class="rounded float-start" height="170px" alt="...">
+              <br>
+              </div>
+              <div class="col">
+                <br>
+              <img src="media/{{bu.property_image_tow}}" class="rounded float-start" height="170px" alt="...">
+              </div>
+              <div class="col">
+                <br>
+            <img src="media/{{bu.property_image_three}}"class="rounded float-start"  height="170px" alt="...">
+              </div>
+              <div class="col">
+                <br>
+            <img src="media/{{bu.property_image_four}}"class="rounded float-start"  height="170px" alt="...">
+          </div>
+            </div>
+          </div>
+          <br>
+        </td>
+      </tr>
+      {% endfor %}
+
+      </table>
+  {% else %}
+  <h1>no data</h1>
+  {% endif %}
+      <!-- <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+
+    </div>
+  </body>
+</html>

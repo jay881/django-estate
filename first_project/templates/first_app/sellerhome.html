@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Home</title>
+		<!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sellerhome.css'%}">
+		<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Philosopher&display=swap" rel="stylesheet">
+<!-- <script type="text/javascript" src="myscript.js"></script> -->
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar navbar-inverse">
+  <div class="container">
+   <div class="navbar-header">
+    <a href="home.html" class="navbar-brand"><p class="paraestate" style="color: #17A589">ESTATE</p></a>
+   </div>
+
+
+
+
+
+
+   <ul class="nav navbar-nav">
+		 <li><a href="##"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30	" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+	 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+	 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+	 </svg></a></li>
+     <li><a href="#">Home</a></li>
+     <li><a href=#listings>Listings</a></li>
+     <li><a href="#addlistings">Add Listings</a></li>
+     <li><a href="#">Contact us</a></li>
+   </ul>
+   <ul class="nav navbar-nav navbar-right">
+     <li><a href="/first_app/seller_logout">Sign out</a></li>
+   </ul>
+   </div>
+
+</nav>
+{% if error %}
+<div class ="alert alert-success">
+<strong>
+{{ error }}
+</strong>
+</div>
+{% endif %}
+<div class="container">
+  <h1 style="color: #17A589">Appointment</h1>
+	<h1>{{curr_user}}</h1>
+</div><br>
+<div class="container">
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Your Appointments</div>
+
+  <!-- Table -->
+
+
+
+
+	{% if fla %}
+	<table class="table" b>
+	 <tr>
+		<td>NO</td>
+		<td>Buyer</td>
+		<td>Appointment time</td>
+	 </tr>
+
+			{% for fl in fla %}
+
+			<tr>
+   		<td><p class="card-text" style="color: #17A589">{{fl.id}}</p></td>
+   		<td><p class="card-text" style="color: #17A589">{{fl.buyer_id}}</p></td>
+   		<td><p class="card-text" style="color: #17A589">{{fl.appoint_date}}</p></td>
+   		<td><button class="btn btn-info">Confirm</button> <button class="btn btn-info">Deny</button></td>
+   		</tr>
+
+			{% endfor %}
+
+			</table>
+	{% else %}
+	<h1>no data</h1>
+	{% endif %}
+
+</div>
+
+</div>
+<div class="container">
+<div class="container" id="listings">
+  <h1 style="color: #17A589">Listings</h1>
+</div>
+
+<table>
+
+<tr>
+    <td>
+        <div>
+					<div class="card" style="width: 18rem;">
+						<img src="{% static 'images/img3.jpg' %}" class="card-img-top" alt="..." width="400px">
+						<div class="card-body">
+							<br>
+							<p class="card-text" style="color: #17A589">5 BHK</p>
+							<a href="/first_app/listing"><button class="btn btn-primary" >View Banglows</button></a>
+						</div>
+					</div>
+        </div>
+    </td>
+    <td>
+        <div>
+					<div class="card" style="width: 18rem;">
+						<img src="{% static 'images/img3.jpg' %}" class="card-img-top" alt="..." width="400px">
+						<div class="card-body">
+							<br>
+							<p class="card-text" style="color: #17A589">5 BHK</p>
+							<a href="/first_app/sellerlistingsflats"><button class="btn btn-primary" >View Flats</button></a>
+						</div>
+					</div>
+        </div>
+    </td>
+	</tr>
+</table>
+<!-- 16:9 aspect ratio
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=zpOULjyy-n8&feature=emb_title"></iframe>
+</div>
+ -->
+
+ <div class="jumbotrone" id="addlistings">
+<div class="addbungalows">
+<form class="bungalows" action="addbungalows" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	<div class="container">
+	  <h1 style="color: #17A589">Add Listings</h1><br>
+		<div class="form-group has-success"><br>
+			<h3 style="color: #17A589">Add Bungalows</h3><br>
+			<!-- <label class="control-label" for="inputSuccess1">sellergmail :</label>
+		 <input type="text" class="form-control" id="inputSuccess1" name="sellergmail" aria-describedby="helpBlock2" required>
+<h1>seller gmail :{{sellergmail}}</h1> -->
+		 <label class="control-label" for="inputSuccess1">seller gmail id :</label>
+		 <input type="text" class="form-control" id="inputSuccess1" name="name" aria-describedby="helpBlock2" value="{{emailid}}" required>
+
+		  <label class="control-label" for="inputSuccess1">Location :</label>
+		  <input type="text" class="form-control" id="inputSuccess1" name="location" aria-describedby="helpBlock2"  required>
+			<label class="control-label" for="inputSuccess1">Longitude :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="longitude" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Latitude :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="latitude" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Ground Area :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="ground_area" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Carpet Area :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="carpet_area" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">BHK(Bedroom Hall Kitchen) :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="BedHK" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Price :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="price" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Pic :</label>
+			<input type="file" name="pic"  id="inputSuccess1" name="pic" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">img1</label>
+			<input type="file"  id="inputSuccess1" name="property_image_one" aria-describedby="helpBlock2" required>
+
+
+			<label class="control-label" for="inputSuccess1">img2</label>
+			<input type="file"  id="inputSuccess1" name="property_image_tow" aria-describedby="helpBlock2" required>
+
+
+			<label class="control-label" for="inputSuccess1">img3</label>
+			<input type="file"  id="inputSuccess1" name="property_image_three" aria-describedby="helpBlock2" required>
+
+
+			<label class="control-label" for="inputSuccess1">img4</label>
+			<input type="file"  id="inputSuccess1" name="property_image_four" aria-describedby="helpBlock2" required>
+		</div>
+	<input type="submit" name="submit"class="btn btn-primary btn-sm"><br>
+	</div>
+</form>
+</div>
+
+
+
+
+<div class="addflats">
+<form class="flats" action="addflats" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+	<div class="container">
+		<div class="form-group has-success"><br>
+			<h3 style="color: #17A589">Add Flats</h3><br>
+			<label class="control-label" for="inputSuccess1">seller gmail id :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="id" aria-describedby="helpBlock2" value="{{emailid}}" required>
+			<label class="control-label" for="inputSuccess1">Name :</label>
+		  <input type="text" class="form-control" id="inputSuccess1" name="name" aria-describedby="helpBlock2" required>
+		  <label class="control-label" for="inputSuccess1">Location :</label>
+		  <input type="text" class="form-control" id="inputSuccess1" name="location" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Longitude :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="longitude" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Latitude :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="latitude" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Ground Area :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="ground_area" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Carpet Area :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="carpet_area" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Flat Name :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="flate_name" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Flat_No :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="flate_no" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">BHK(Bedroom Hall Kitchen) :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="BedHK" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Floor No :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="floor_no" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Car Parking :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="car_parking" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Price :</label>
+			<input type="text" class="form-control" id="inputSuccess1" name="price" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Pic :</label>
+			<input type="file" name="pic"  id="inputSuccess1" name="pic" aria-describedby="helpBlock2" required>
+
+				<label class="control-label" for="inputSuccess1">img1</label>
+				<input type="file"  id="inputSuccess1" name="property_image_one" aria-describedby="helpBlock2" required>
+
+
+				<label class="control-label" for="inputSuccess1">img2</label>
+				<input type="file"  id="inputSuccess1" name="property_image_tow" aria-describedby="helpBlock2" required>
+
+
+				<label class="control-label" for="inputSuccess1">img3</label>
+				<input type="file"  id="inputSuccess1" name="property_image_three" aria-describedby="helpBlock2" required>
+
+
+				<label class="control-label" for="inputSuccess1">img4</label>
+				<input type="file"  id="inputSuccess1" name="property_image_four" aria-describedby="helpBlock2" required>
+
+			<!-- <label class="control-label" for="inputSuccess1">Pic 2 :</label>
+			<input type="file" name="pic"  id="inputSuccess1" name="pic2" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Pic 3 :</label>
+			<input type="file" name="pic"  id="inputSuccess1" name="pic3" aria-describedby="helpBlock2" required>
+			<label class="control-label" for="inputSuccess1">Pic 4 :</label>
+			<input type="file" name="pic"  id="inputSuccess1" name="pic4" aria-describedby="helpBlock2" required> -->
+		</div>
+	<input type="submit" name="submit"class="btn btn-primary btn-sm"><br>
+	</div>
+</form>
+</div>
+ </div>
+
+
+
+
+
+  <div class="jumbotrone">
+    <h1 style="color: #17A589">About us</h1><br>
+    <p style="color:#FBFCFC">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p style="color:#FBFCFC">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+     <p style="color:#FBFCFC">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+     <p style="color:#FBFCFC">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+     <p style="color:#FBFCFC">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+<div class="container">
+  <h2 style="color:#FBFCFC">More stuff</h2>
+  <p style="color:#FBFCFC">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p style="color:#FBFCFC">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p  style="color:#FBFCFC"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+
+<div class="contactusshadow" id="contact">
+	<h1 style="color: #17A589">Contact Us</h1><br>
+<div class="firstnameofconcateus">
+	<h3 style="color:#17A589">	First Name : <input type="email" name="firstnameofconcateus" value=""></h3>
+	<h3 style="color:#17A589">	Textarea : </h3>
+	<textarea name="Textarea" rows="8" cols="75"></textarea>
+<button class="btn btn-primary">Submit</button>
+</div>
+</div>
+
+</body>
+</html>
